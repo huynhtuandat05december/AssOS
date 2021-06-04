@@ -114,8 +114,8 @@ addr_t alloc_mem(uint32_t size, struct pcb_t *proc)
 	 * byte in the allocated memory region to [ret_mem].
 	 * */
 
-	uint32_t num_pages = (size % PAGE_SIZE) ? size / PAGE_SIZE : size / PAGE_SIZE + 1; // Number of pages we will use
-	int mem_avail = 0;																																 // We could allocate new memory region or not?
+	uint32_t num_pages = (size % PAGE_SIZE == 0) ? size / PAGE_SIZE : size / PAGE_SIZE + 1; // Number of pages we will use
+	int mem_avail = 0;																																			// We could allocate new memory region or not?
 
 	/* First we must check if the amount of free memory in
 	 * virtual address space and physical address space is
